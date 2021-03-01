@@ -288,13 +288,6 @@ function MediaUnlockTest() {
     MediaUnlockTest_DisneyPlus ${1};
 }
 
-export LANG="en_US";
-export LANGUAGE="en_US";
-export LC_ALL="en_US";
-clear;
-echo -e " ** Version: v1.0";
-echo -e "${Font_Red}Bug反馈 https://t.me/zerocloud${Font_Suffix}";
-
 install_tool() {
     echo "===> Start to install tool"    
     if [ -x "$(command -v yum)" ]; then
@@ -308,7 +301,14 @@ install_tool() {
         exit -1
     fi 
 }
+
+export LANG="en_US";
+export LANGUAGE="en_US";
+export LC_ALL="en_US";
+clear;
 install_tool;
+echo -e " ** Version: v1.0";
+echo -e "${Font_Red}Bug反馈 https://t.me/zerocloud${Font_Suffix}";
 echo " ** 正在测试IPv4解锁情况";
 check4=`ping 1.1.1.1 -c 1 2>&1`;
 if [[ "$check4" != *"unreachable"* ]] && [[ "$check4" != *"Unreachable"* ]];then
