@@ -308,6 +308,7 @@ install_tool() {
         exit -1
     fi 
 }
+install_tool;
 echo " ** 正在测试IPv4解锁情况";
 check4=`ping 1.1.1.1 -c 1 2>&1`;
 if [[ "$check4" != *"unreachable"* ]] && [[ "$check4" != *"Unreachable"* ]];then
