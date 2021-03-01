@@ -305,8 +305,8 @@ install_tool() {
 export LANG="en_US";
 export LANGUAGE="en_US";
 export LC_ALL="en_US";
-clear;
 install_tool;
+clear;
 echo -e " ** Version: v1.1";
 echo -e "${Font_Red}Bug反馈 https://t.me/zerocloud${Font_Suffix}";
 echo " ** 正在测试IPv4解锁情况";
