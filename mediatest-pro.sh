@@ -1,5 +1,5 @@
 #!/bin/bash
-
+shell_version="1.2"
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
 UA_Dalvik="Dalvik/2.1.0 (Linux; U; Android 9; ALP-AL00 Build/HUAWEIALP-AL00)"
 Font_Black="\033[30m"
@@ -222,7 +222,7 @@ function MediaUnlockTest_Netflix() {
     fi
     
     if [[ "$result" == "curl"* ]];then
-        echo -n -e "\r Netflix:\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
+        echo -n -e "\r Netflix:\t\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
         return;
     fi
     
@@ -261,7 +261,7 @@ function MediaUnlockTest_DisneyPlus() {
         return;
     fi
     
-    if [[ "$result" == *"not available"* ]];then
+    if [[ "$result" == *"https://preview.disneyplus.com/unavailable/"* ]];then
         echo -n -e "\r DisneyPlus:\t\t\t\t${Font_Red}Unsupport${Font_Suffix}\n";
         return;
     fi
@@ -307,7 +307,7 @@ export LANGUAGE="en_US";
 export LC_ALL="en_US";
 install_tool;
 clear;
-echo -e " ** Version: v1.1";
+echo -e " ** Version: v${shell_version}";
 echo -e "${Font_Red}Bug反馈 https://t.me/zerocloud${Font_Suffix}";
 echo " ** 正在测试IPv4解锁情况";
 check4=`ping 1.1.1.1 -c 1 2>&1`;
@@ -320,7 +320,8 @@ fi
 echo " ** 正在测试IPv6解锁情况";
 check6=`ping6 240c::6666 -c 1 2>&1`;
 if [[ "$check6" != *"unreachable"* ]] && [[ "$check6" != *"Unreachable"* ]];then
-    MediaUnlockTest 6;
+    echo "暂未完善";
+    #MediaUnlockTest 6;
 else
     echo -e "${Font_SkyBlue}当前主机不支持IPv6,跳过...${Font_Suffix}";
 fi
